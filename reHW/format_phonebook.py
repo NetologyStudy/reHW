@@ -6,14 +6,12 @@ from pprint import pprint
 def format_contacts(list_):
     my_list = [list_[0]]
     for contact in list_[1:]:
-        # print(contact)
         contact1 = ','.join(contact[:3]).strip(',').replace(',', ' ').split()
         if len(contact1) == 2:
             contact1.append('')
         contact2 = ','.join(contact[3:]).split(',')
         contact1.extend(contact2)
         my_list.append(contact1)
-
     return my_list
 
 
@@ -50,5 +48,3 @@ def normalize_contact():
                     grouped_data[key][i] = record[i]
     normal_list.extend(list(grouped_data.values()))
     return normal_list
-
-# print(normalize_contact())
