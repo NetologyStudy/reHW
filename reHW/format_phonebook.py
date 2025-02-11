@@ -20,10 +20,10 @@ def normalize_phone():
     normalize_list = [text[0]]
     for t in text[1:]:
         phone_pattern = r"(\+7|8)\s*\(*(\d{3})\)*[-.\s]*(\d{3})[-.\s]*(\d{2})[-.\s]*(\d{2})\s*\(*(доб.)*\s*(\d{4})*\)*"
-        pattern_subst = r'+7(\2)\3\4\5'
+        pattern_subst = r'+7(\2)\3-\4-\5'
         result = re.findall(phone_pattern, ','.join(t))
         if result and result[0][-1]:
-            pattern_subst = r'+7(\2)\3\4\5 \6\7'
+            pattern_subst = r'+7(\2)\3-\4-\5 \6\7'
             result = re.sub(phone_pattern, pattern_subst, ','.join(t))
             normalize_list.append(result.split(','))
         else:
